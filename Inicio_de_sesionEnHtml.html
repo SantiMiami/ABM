@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Inicio de Sesión</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Título */
+h2 {
+    color: #333;
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* Estilo para los contenedores principales */
+#DyM {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#contenido {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+form input[type="text"], 
+form input[type="number"], 
+form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus, 
+form input[type="number"]:focus, 
+form select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Botón Volver */
+button {
+    background-color: #008CBA;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0077b5;
+}
+
+/* Estilo de inputs y selects */
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+/* Añadir espacio entre los inputs */
+form input, form select {
+    margin-bottom: 15px;
+}
+
+/* Código (por ejemplo, materias) */
+code {
+    font-family: monospace;
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 3px 6px;
+    border-radius: 3px;
+}
+
+/* Ajustes para que los elementos se centren en la pantalla */
+#contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Sombra y transición en los inputs */
+input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+</style>
+<body>
+    <h2>Iniciar Sesión</h2>
+    <div id="DyM">Docente y materia</div>
+    <div id = "contenido">
+        <div id = "cambio_de_contenido">
+            <div id = "C">
+                <form action='Inicio_de_sesion.php' method='post'>
+                    <h3>Accion a realizar</h3>
+                    <label for='username'>Nombre:</label>
+                    <input type='text' id='username' name='username' required><br>
+                    <br><label for='username'>Apellido:</label>
+                    <input type='text' id='Apellido' name='Apellido' required><br>
+                    <br><label for='password'>DNI:</label>
+                    <input type='text' id='DNI' name='DNI' maxlength='8' onkeypress='soloNumeros(event)' required><br><br>
+                    <input type = "hidden" name = "Sector" id = "Sector" value = "docente">
+
+                    <input type="hidden" name="Sector" id="Sector" value="materias">
+                    <label for='username'>Materias:</label>
+                    <input type='text' id='Materias' name='Materias' required>
+                    <br><br>
+                    <code>Turno:</code>
+                    <select id = 'Turno' name = 'Turno'>
+                        <option value = 'Mañana'>Mañana</option>
+                        <option value = 'Tarde'>Tarde</option></select><br><br><label for='username'>Curso:</label>
+                        <input type='number' id='Curso' name='Curso' required><br><br>
+                        <label for='username'>Division:</label>
+                        <input type='number' id='Division' name='Division' required><br><br>
+                    </select>
+                    <input type = "hidden" name = "Sector" id = "Sector" value = "materias">
+                    <input type='submit' value='Registro'>
+                </form>
+                <form action='Inicio_de_sesion.php' method='post'>
+                    <button type='submit'>Volver</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    //Docentes
+    const DyM = document.getElementById('DyM');
+    const  C = document.getElementById('C');
+    C.style.display = "block";
+
+
+    //Cambio de contenido
+    const cambio_de_contenido = document.getElementById('cambio_de_contenido');
+
+
+    //Registro de lo cliqueado
+    addEventListener('click', Element => {
+        console.log(Element.target.id)
+    });
+    //function Detector_De_Clicks(addEventListener('click', d => )
+
+    
+
+function soloNumeros(event) {
+            // Obtiene el código de la tecla presionada
+            var charCode = event.which ? event.which : event.keyCode;
+            
+            // Verifica si es un número (0-9) o la tecla de retroceso (backspace)
+            if (charCode < 48 || charCode > 57) {
+                event.preventDefault();
+            }
+        }
+function mostrar_contenido(){
+    var seleccion = document.getElementById("Sector").value;
+    var mostrarContenido = document.getElementById("contenido");
+}
+
+</script>
+</html>

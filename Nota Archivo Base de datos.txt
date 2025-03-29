@@ -1,0 +1,2 @@
+Usar el archivo de tipo Base de datos solamente para crear la base de datos y su estructura. Ejecutarlo con XAMPP, habiendo
+activado MySQL y Apache y habiendo dejado el archivo dentro de "htdocs" de XAMPP. Solo seleccionarlo. 

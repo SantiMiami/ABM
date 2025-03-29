@@ -1,0 +1,15 @@
+ALTER TABLE materias
+ADD CONSTRAINT fk_id_docente
+FOREIGN KEY (id_docente) REFERENCES docente(id_docente)
+ON DELETE CASCADE;
+
+
+///////
+1_ Escribir consulta y asignarla a una variable SQL.
+2_ Ejecutar Query con la variable de conexion y la variable de consulta.
+3_ El resultado de ello se le asigna a una variable (generalmente se lo llama row).
+
+
+////
+Comandos de SQL
+ALTER TABLE `docente` ADD `estado` VARCHAR(255) NOT NULL AFTER `DNI`;
